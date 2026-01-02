@@ -15,6 +15,8 @@ namespace BlazorRasp5
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            app.UsePathBase("/BlazorRasp5");
+            
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
