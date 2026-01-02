@@ -8,3 +8,10 @@ för deploy i raspberry 5 med nginx som frontend server.
 ## Miljö
 Svarar på port 5103 i produktionsmiljö. Triggas när
 ASPNETCORE_ENVIRONMENT är satt till Production.
+
+## Deploy
+För att deploya applikationen, kör följande kommando i terminalen:
+```bash
+dotnet publish -c Release -r linux-arm64 --self-contained
+```
+
