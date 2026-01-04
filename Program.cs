@@ -1,4 +1,5 @@
 using BlazorRasp5.Components;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace BlazorRasp5
 {
@@ -12,9 +13,16 @@ namespace BlazorRasp5
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
+            builder.Services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            app.UseForwardedHeaders();
             app.UsePathBase("/BlazorRasp5");
             
             if (!app.Environment.IsDevelopment())
