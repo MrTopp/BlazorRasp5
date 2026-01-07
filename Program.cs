@@ -31,6 +31,14 @@ namespace BlazorRasp5
             // Configure the HTTP request pipeline.
             app.UseForwardedHeaders();
 
+            app.UseSerilogRequestLogging(options =>
+            {
+                options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+                {
+                    diagnosticContext.Set("ClientIp", httpContext.Connection.RemoteIpAddress?.ToString());
+                };
+            });
+
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
