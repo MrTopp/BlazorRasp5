@@ -11,7 +11,7 @@ ASPNETCORE_ENVIRONMENT är satt till Production.
 
 ## Deploy
 För att deploya applikationen, kör följande kommando i terminalen:
-```bash
-dotnet publish -c Release -r linux-arm64 --self-contained
+```
+dotnet publish -c Release -r linux-arm64 --self-contained false
 ```
 
