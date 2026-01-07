@@ -1,5 +1,6 @@
 using BlazorRasp5.Components;
 using Microsoft.AspNetCore.HttpOverrides;
+using Serilog;
 
 namespace BlazorRasp5
 {
@@ -8,6 +9,12 @@ namespace BlazorRasp5
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configure Serilog
+            builder.Host.UseSerilog((context, services, configuration) => configuration
+                .ReadFrom.Configuration(context.Configuration)
+                .ReadFrom.Services(services)
+                .Enrich.FromLogContext());
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
