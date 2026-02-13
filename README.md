@@ -7,7 +7,7 @@ applikation på min Raspberry Pi 5 med .NET 10 och nginx som frontend server.
 Modifiering av koden är anpassningar till och uppsäkring av driftsmiljön.
 
 Applikationen kan nås från internet via urlen:
-http://hemmahostb.asuscomm.com/BlazorRasp5
+http://thomasbjork.net/BlazorRasp5
 
 Anpassningar av applikationen har gjorts i samarbete med Google Gemini
 och GitHub Copilot.

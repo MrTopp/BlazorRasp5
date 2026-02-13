@@ -47,7 +47,10 @@ namespace BlazorRasp5
                 await next();
             });
 
-            app.UsePathBase("/BlazorRasp5");
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UsePathBase("/BlazorRasp5");
+            }
             
             if (!app.Environment.IsDevelopment())
             {
